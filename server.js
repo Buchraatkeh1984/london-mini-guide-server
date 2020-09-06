@@ -13,9 +13,10 @@ const cities=["Harrow","Heathrow","Stratford"]
 app.get('/', function(request, response) {
    // response.sendFile(__dirname + '/index.html');
    response.json({
-       "/pharmcies": "retruns an array of pharmacies in a specific area",
-       "/colleges":"returns colleges list for stratford",
-"/doctors":"returns doctors list for stratford",
+    "choose one of these cities":" Harrow,Heathrow,Stratford",
+       "/city/pharmcies": "retruns an array of pharmacies in a specific area",
+       "/city/colleges":"returns colleges list for stratford",
+"/city/doctors":"returns doctors list for stratford",
 "/hospitals":"returns hospitals list for stratford"
        
     });
