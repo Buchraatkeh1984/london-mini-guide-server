@@ -30,31 +30,41 @@ app.get('/:city', function(request, response) {
     response.json(eval(cityName))
 }
 });
-app.get('/:city/pharmacies', function(request, response) {
+app.get('/:city/:category', function(request, response) {
     const cityName= request.params.city;
+    const category= request.params.category;
+console.log(category);
   if(cities.includes(cityName)){
-  const city=eval(cityName)
-    response.json(city.pharmacies)
+  const cityCat=cityName.concat("."+category)
+  const cityCategory=eval(cityCat);
+    response.json(cityCategory)
 }
 });
-app.get('/:city/doctors', function(request, response) {
-    const cityName= request.params.city;
-    if(cities.includes(cityName)){
-        const city=eval(cityName)
-            response.json(city.doctors)}
-});
+// app.get('/:city/pharmacies', function(request, response) {
+//     const cityName= request.params.city;
+//   if(cities.includes(cityName)){
+//   const city=eval(cityName)
+//     response.json(city.pharmacies)
+// }
+// });
+// app.get('/:city/doctors', function(request, response) {
+//     const cityName= request.params.city;
+//     if(cities.includes(cityName)){
+//         const city=eval(cityName)
+//             response.json(city.doctors)}
+// });
 
-app.get('/:city/hospitals', function(request, response) {
-    const cityName= request.params.city;
-    if(cities.includes(cityName)){
-        const city=eval(cityName)
-        response.json(city.hospitals)}
-});
-app.get('/:city/colleges', function(request, response) {
-    const cityName= request.params.city;
+// app.get('/:city/hospitals', function(request, response) {
+//     const cityName= request.params.city;
+//     if(cities.includes(cityName)){
+//         const city=eval(cityName)
+//         response.json(city.hospitals)}
+// });
+// app.get('/:city/colleges', function(request, response) {
+//     const cityName= request.params.city;
     
-    if(cities.includes(cityName)){
-        const city=eval(cityName)
-        response.json(city.colleges)}
-});
+//     if(cities.includes(cityName)){
+//         const city=eval(cityName)
+//         response.json(city.colleges)}
+// });
   app.listen(port, () => console.log(`[MockServer] listening at http://localhost:${port}`));
